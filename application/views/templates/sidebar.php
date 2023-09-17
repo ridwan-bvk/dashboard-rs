@@ -4,18 +4,27 @@
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <!-- Left navbar links -->
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Rekap</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Detail</a>
-                </li>
-            </ul>
+            <?php
+            if ($status == 'rekap') {
+            ?>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    </li>
 
+                    <li class="nav-item d-none d-sm-inline-block">
+                        <a href="<?= base_url('DashboardRekap') ?>" class="nav-link  ">
+                            <button class="btn btn-sm btn-success" type="button">Pertanggal</button></a>
+                    </li>
+                    <li class="nav-item d-none d-sm-inline-block">
+
+                        <a href="<?= base_url('DashboardRekap/rekap_perbulan') ?>" class="nav-link ">
+                            <button class="btn btn-sm btn-success" type="button" aria-disabled="<?= ($status == 'rekap') ? false : true ?>">Perbulan</button>
+
+                        </a>
+                    </li>
+                </ul>
+            <?php } ?>
 
             <!-- SEARCH FORM -->
             <!-- <form class="form-inline ml-3">
@@ -110,7 +119,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h3 class="m-0 text-dark col-sm-6"><?= $title ?></h3>
+                            <h5 class="m-0 text-dark col-sm-8"><?= $title ?></h5>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">

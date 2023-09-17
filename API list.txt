@@ -1,0 +1,12 @@
+REKAP
+----------------------------------------------------------------
+https://simrs.rsukotabanjar.co.id/ws-rsubanjar/dashboardpertgl
+Body==> tanggal : 2023-09-15, waktu: rs
+
+https://simrs.rsukotabanjar.co.id/ws-rsubanjar/dashboardperbln
+Body==> bulan : 09, tahun:2023, waktu: rs
+
+DETAIL
+----------------------------------------------------------------
+https://simrs.rsukotabanjar.co.id/ws-rsubanjar/antrianpertanggal
+Body==> tanggal: 2023-09-15

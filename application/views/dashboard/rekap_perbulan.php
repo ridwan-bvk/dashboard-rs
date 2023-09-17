@@ -11,12 +11,12 @@
     <!-- /.card-header -->
     <div class="card-body">
         <!-- <form class="form-inline ">
-            <div class="input-group input-daterange">
-                <input type="text" class="form-control" value="2012-04-05">
-                <div class="input-group-addon"> to </div>
-                <input type="text" class="form-control" value="2012-04-19">
-            </div>
-        </form> -->
+        <div class="input-group input-daterange">
+            <input type="text" class="form-control" value="2012-04-05">
+            <div class="input-group-addon"> to </div>
+            <input type="text" class="form-control" value="2012-04-19">
+        </div>
+    </form> -->
         <table id="example1" class="table table-bordered table-striped table-responsive">
             <!-- class="table table-bordered table-striped"> -->
             <thead>
@@ -100,21 +100,21 @@
 </div>
 
 <!-- <script>
-    var url = 'https://simrs.rsukotabanjar.co.id/ws-rsubanjar/dashboardpertgl';
-    var formData = new FormData();
-    formData.append('tanggal', '2023-09-15');
-    formData.append('waktu', 'rs');
+var url = 'https://simrs.rsukotabanjar.co.id/ws-rsubanjar/dashboardpertgl';
+var formData = new FormData();
+formData.append('tanggal', '2023-09-15');
+formData.append('waktu', 'rs');
 
 
-    fetch(url, {
-            method: 'POST',
-            body: formData
-        })
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(body) {
-            // console.log(body);
-            document.cookie = 'data' + body;
-        });
+fetch(url, {
+        method: 'POST',
+        body: formData
+    })
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(body) {
+        // console.log(body);
+        document.cookie = 'data' + body;
+    });
 </script> -->
