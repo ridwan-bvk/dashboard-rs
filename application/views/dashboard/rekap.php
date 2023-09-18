@@ -3,18 +3,18 @@
     <!-- /.card-header -->
     <div class="card-body">
         <!-- <div class="container mr-0"> -->
-            <div class="row row-cols-4">
-                <form>
-                    <div class="form-row align-items-center">
-                        <div class="col-auto ">
-                            <input type="date" class="form-control mb-2" id="inlineFormInput">
-                        </div>
-                        <div class="col-auto">
-                            <button type="submit" class="btn btn-primary mb-2">Retrieve</button>
-                        </div>
+        <div class="row row-cols-4">
+            <form action="<?= base_url('DashboardRekap/index') ?>" method='POST' onsubmit="return validateForm()" name="myForm">
+                <div class="form-row align-items-center">
+                    <div class="col-auto ">
+                        <input type="date" class="form-control date" id="tgldata" name='tgl_input' name="fname">
                     </div>
-                </form>
-            </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary mb-2" id="btn_retrieve">Retrieve</button>
+                    </div>
+                </div>
+            </form>
+        </div>
         <!-- </div> -->
         <table id="example1" class="table table-bordered table-striped">
             <!-- class="table table-bordered table-striped"> -->
@@ -133,53 +133,65 @@
             ?>
         </table>
     </div>
-    
-        <table class="table">
-            <thead class="thead-light">
-                <tr class="colspan">
-                    <th scope="col">Keterangan</th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <thead class="thead-light">
-                <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Kode</th>
-                    <th scope="col">Keterangan</th>
-                 
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>task1</td>
-                    <td> 1 (mulai waktu tunggu admisi)</td>
-               
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>task2</td>
-                    <td> 2 (akhir waktu tunggu admisi/mulai waktu layan admisi)</td>
-               
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>task2</td>
-                    <td> 3 (akhir waktu layan admisi/mulai waktu tunggu poli)</td>
-                  
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>task2</td>
-                    <td> 4 (akhir waktu tunggu poli/mulai waktu layan poli)</td>
-                   
-                </tr>
-                
-            </tbody>
-        </table>
-   
+
+    <table class="table">
+        <thead class="thead-light">
+            <tr class="colspan">
+                <th scope="col">Keterangan</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">Kode</th>
+                <th scope="col">Keterangan</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>task1</td>
+                <td> 1 (mulai waktu tunggu admisi)</td>
+
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>task2</td>
+                <td> 2 (akhir waktu tunggu admisi/mulai waktu layan admisi)</td>
+
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>task2</td>
+                <td> 3 (akhir waktu layan admisi/mulai waktu tunggu poli)</td>
+
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>task2</td>
+                <td> 4 (akhir waktu tunggu poli/mulai waktu layan poli)</td>
+
+            </tr>
+
+        </tbody>
+    </table>
+
 </div>
+<script>
+    function validateForm() {
+
+        var x = document.forms["myForm"]["fname"].value;
+        console.log('ada');
+        if (x == null) {
+            console.log('ada');
+            alert("Name must be filled out");
+            return false;
+        }
+    }
+</script>
 
 <!-- 1 (mulai waktu tunggu admisi), 
                 2 (akhir waktu tunggu admisi/mulai waktu layan admisi), 

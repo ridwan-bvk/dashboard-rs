@@ -11,33 +11,23 @@ class DashboardRekap extends CI_Controller
 
 	public function Index()
 	{
-		// $curl = curl_init();
 
-		// curl_setopt_array($curl, array(
-		// 	CURLOPT_URL => 'https://simrs.rsukotabanjar.co.id/ws-rsubanjar/dashboardpertgl',
-		// 	CURLOPT_RETURNTRANSFER => true,
-		// 	CURLOPT_ENCODING => '',
-		// 	CURLOPT_MAXREDIRS => 10,
-		// 	CURLOPT_TIMEOUT => 0,
-		// 	CURLOPT_FOLLOWLOCATION => true,
-		// 	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-		// 	CURLOPT_CUSTOMREQUEST => 'POST',
-		// 	CURLOPT_POSTFIELDS => array('tanggal' => '2023-09-15', 'waktu' => 'rs'),
-		// ));
+		$tgl_input = $this->input->post('tgl_input', true);
+		if (!empty($tgl_input)) {
 
-		// $response = curl_exec($curl);
+			// echo substr($tgl_input, 0, 4);
+			echo substr($tgl_input, 5, 2);
+			// die($tgl_input);
+			// die($tgl_input);
+			$api_data = $this->Rekapmodel->getdata_curl($tgl_input);
+		} else {
+			$api_data = null;
+		}
 
-		// curl_close($curl);
-		// $api_data = json_decode($response, true);
-		// echo $response;
-		// print_r($api_data);
-
-		$api_data = $this->Rekapmodel->getdata_curl('2023-09-18');
 		$data['app_name'] = 'Dashboard App';
 		$data['title'] = 'Dashboard Monitoring Pertanggal';
 		$data['curl'] = $api_data;
 		$data['status'] = 'rekap';
-		// $data['data'] = $this->RekapModel->getdata('rekap_pendaftaran')->result();
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
@@ -47,7 +37,18 @@ class DashboardRekap extends CI_Controller
 
 	public function rekap_perbulan()
 	{
-		$apidata_prbln = $this->Rekapmodel->getdata_curl_perbulan('09', '2023');
+		$tgl_input = $this->input->post('tgl_input', true);
+		if (!empty($tgl_input)) {
+
+			$tahun =  substr($tgl_input, 0, 4);
+			$bulan =  substr($tgl_input, 5, 2);
+			// die($tgl_input);
+			// die($tgl_input);
+			$apidata_prbln = $this->Rekapmodel->getdata_curl_perbulan($bulan, $tahun);
+		} else {
+			$apidata_prbln = null;
+		}
+
 		$data['app_name'] = 'Dashboard App';
 		$data['title'] = 'Dashboard Monitoring Perbulan';
 		$data['curl'] = $apidata_prbln;
