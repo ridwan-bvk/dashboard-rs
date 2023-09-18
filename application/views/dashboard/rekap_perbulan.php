@@ -24,6 +24,7 @@
                     <th scope="col">No</th>
                     <th scope="col">Kode PPK</th>
                     <th scope="col">Nama PPK</th>
+                    <th scope="col">Poli</th>
                     <th scope="col">Jumlah Antrian</th>
                     <th scope="col">Waktu Tunggu Admisi</th>
                     <th scope="col">Rata-rata akhir tunggu poli (mulai waktu layan poli)</th>
@@ -37,6 +38,7 @@
                 </tr>
             </thead>
             <?php
+            if (!empty($curl)){
             $no = 1;
             foreach ($curl as $data1) :
                 foreach ($data1 as $data2) :
@@ -48,6 +50,7 @@
                                     <td><?= $no++ ?></td>
                                     <td><?= $value['kdppk'] ?></td>
                                     <td><?= $value['nmppk'] ?></td>
+                                    <td><?= $value['namapoli'] ?></td>
                                     <td><?= $value['jumlah_antrean'] ?></td>
                                     <td><?php
                                         $input = round($value['waktu_task1']);
@@ -94,6 +97,7 @@
                     }
                 endforeach;
             endforeach;
+        }
             ?>
         </table>
     </div>

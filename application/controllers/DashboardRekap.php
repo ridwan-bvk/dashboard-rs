@@ -32,7 +32,7 @@ class DashboardRekap extends CI_Controller
 		// echo $response;
 		// print_r($api_data);
 
-		$api_data = $this->Rekapmodel->getdata_curl('2023-09-15');
+		$api_data = $this->Rekapmodel->getdata_curl('2023-09-18');
 		$data['app_name'] = 'Dashboard App';
 		$data['title'] = 'Dashboard Monitoring Pertanggal';
 		$data['curl'] = $api_data;

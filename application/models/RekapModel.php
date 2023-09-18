@@ -22,6 +22,8 @@ class Rekapmodel extends CI_Model
 
         curl_close($curl);
         $api_data = json_decode($response, true);
+        // var_dump($api_data);
+        // exit;
         return $api_data;
     }
 
