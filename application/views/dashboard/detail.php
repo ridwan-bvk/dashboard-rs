@@ -14,16 +14,50 @@
             <?php
             $no = 1;
             foreach ($curl as $data1) :
+                  if (is_array($data1) || is_object($data1)||(!empty($data1))) {
+                   // if (is_iterable($data1)) {
+                   
+                    foreach ($data1 as $value) :
+                        $value11 = "jeniskunjungan"; 
+                        $index = array_search($value11, $data1);
+                        print_r("Index : " . $index);
+                        // if (is_iterable($value)) { 
+                            // print_r($value);
+                            // $value = implode(" ",$value);
+                            // if (is_array($value) || is_object($value)||(!empty($value))) {
+                                // print_r($value);
+                            // exit;
+                            // foreach ($value as $value1) :
+                            // foreach ($value1 as $value2) :
+                                // var_dump($value1);
 
-                foreach ($data1 as $data2) :
-                    if (is_array($data2) || is_object($data2)) {
-                        foreach ($data2 as $value) :
-                            var_dump($value['nomorreferensi']);
-                            exit;
+                        // var_dump($value);
+                    // print_r($data1[0]['nomorreferensi']);
+                
+                // print_r($data1);
+                // print_r(count($data1));
+                // foreach ($data1 as $data2) :
+                    
+                //         
+                            // var_dump($data2['jeniskunjungan']);
+                            // if (is_array($value) || is_object($value)||(!empty($value))) {
+                            // foreach ($value as $value1) :
+                            
+                         
             ?>
                             <tbody>
                                 <tr>
-                                    <td><?= $value['nomorreferensi'] ?></td>
+                                    <td><?php
+                                    
+
+                                    //  $data =  $value['kodebooking'];
+                                    //  if (is_array($data) || is_object($data)||(!empty($data))) {
+                                        echo $value['ispeserta'];
+                                    //  }
+                                    
+                                   
+                                    
+                                    ?></td>
                                     <td>Internet
                                         Explorer 4.0
                                     </td>
@@ -33,9 +67,13 @@
                                 </tr>
                             </tbody>
             <?php
-                        endforeach;
-                    }
+                        // endforeach;
+                    // }
+                    // endforeach;
+                    // endforeach;
+            // }
                 endforeach;
+             }
             endforeach;
             ?>
         </table>

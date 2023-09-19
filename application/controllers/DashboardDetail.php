@@ -15,7 +15,7 @@ class DashboardDetail extends CI_Controller
         $data['app_name'] = 'Dashboard App';
         $data['title'] = 'Detail Monitoring Antrian';
         $data['status'] = 'detail';
-        $data['curl'] = $api_data_antrian;
+        $data['curl'] = $api_data_antrian['response'];
         // var_dump($api_data_antrian);
         // exit;
 
