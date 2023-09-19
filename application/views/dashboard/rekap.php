@@ -7,7 +7,7 @@
             <form action="<?= base_url('DashboardRekap/index') ?>" method='POST' onsubmit="return validateForm()" name="myForm">
                 <div class="form-row align-items-center">
                     <div class="col-auto ">
-                        <input type="date" class="form-control date" id="tgldata" name='tgl_input' name="fname">
+                        <input type="date" class="form-control date" id="tgldata" name="tgl_input" value="<?php echo date('Y-m-d'); ?>" required oninvalid="this.setCustomValidity('Tanggal harus diisi.')">
                     </div>
                     <div class="col-auto">
                         <button type="submit" class="btn btn-primary mb-2" id="btn_retrieve">Retrieve</button>
@@ -47,87 +47,89 @@
             if (!empty($curl)) {
                 $no = 1;
                 foreach ($curl as $data1) :
-                    foreach ($data1 as $data2) :
-                        if (is_array($data2) || is_object($data2)) {
-                            foreach ($data2 as $value) :
+                    if (is_array($data1) || is_object($data1)) {
+                        foreach ($data1 as $data2) :
+                            if (is_array($data2) || is_object($data2)) {
+                                foreach ($data2 as $value) :
             ?>
-                                <tbody>
-                                    <tr>
-                                        <td><?= $no++ ?></td>
-                                        <td><?= $value['kdppk'] ?></td>
-                                        <td><?= $value['namapoli'] ?></td>
-                                        <td><?= $value['jumlah_antrean'] ?></td>
-                                        <td><?php
-                                            $input = round($value['waktu_task1']);
-                                            echo  gmdate('H:i:s', $input);
+                                    <tbody>
+                                        <tr>
+                                            <td><?= $no++ ?></td>
+                                            <td><?= $value['kdppk'] ?></td>
+                                            <td><?= $value['namapoli'] ?></td>
+                                            <td><?= $value['jumlah_antrean'] ?></td>
+                                            <td><?php
+                                                $input = round($value['waktu_task1']);
+                                                echo  gmdate('H:i:s', $input);
 
-                                            ?>
-                                        </td>
-                                        <td><?php
-                                            $input = round($value['waktu_task2']);
-                                            echo  gmdate('H:i:s', $input);
+                                                ?>
+                                            </td>
+                                            <td><?php
+                                                $input = round($value['waktu_task2']);
+                                                echo  gmdate('H:i:s', $input);
 
-                                            ?>
-                                        </td>
-                                        <td><?php
-                                            $input = round($value['waktu_task3']);
-                                            echo  gmdate('H:i:s', $input);
+                                                ?>
+                                            </td>
+                                            <td><?php
+                                                $input = round($value['waktu_task3']);
+                                                echo  gmdate('H:i:s', $input);
 
-                                            ?>
-                                        </td>
-                                        <td><?php
-                                            $input = round($value['waktu_task4']);
-                                            echo  gmdate('H:i:s', $input);
+                                                ?>
+                                            </td>
+                                            <td><?php
+                                                $input = round($value['waktu_task4']);
+                                                echo  gmdate('H:i:s', $input);
 
-                                            ?>
-                                        </td>
-                                        <td><?php
-                                            $input = round($value['waktu_task5']);
-                                            echo  gmdate('H:i:s', $input);
+                                                ?>
+                                            </td>
+                                            <td><?php
+                                                $input = round($value['waktu_task5']);
+                                                echo  gmdate('H:i:s', $input);
 
-                                            ?>
-                                        </td>
-                                        <td><?php
-                                            $input = round($value['waktu_task6']);
-                                            echo  gmdate('H:i:s', $input);
+                                                ?>
+                                            </td>
+                                            <td><?php
+                                                $input = round($value['waktu_task6']);
+                                                echo  gmdate('H:i:s', $input);
 
-                                            ?>
-                                        </td>
-                                        <td><?php
-                                            $input = round($value['avg_waktu_task1']);
-                                            echo  gmdate('H:i:s', $input);
-                                            ?>
-                                        </td>
-                                        <td><?php
-                                            $input = round($value['avg_waktu_task2']);
-                                            echo  gmdate('H:i:s', $input);
-                                            ?>
-                                        </td>
-                                        <td><?php
-                                            $input = round($value['avg_waktu_task3']);
-                                            echo  gmdate('H:i:s', $input);
-                                            ?>
-                                        </td>
-                                        <td><?php
-                                            $input = round($value['avg_waktu_task4']);
-                                            echo  gmdate('H:i:s', $input);
-                                            ?>
-                                        </td>
-                                        <td><?php
-                                            $input = round($value['waktu_task5']);
-                                            echo  gmdate('H:i:s', $input);
-                                            ?>
-                                        </td>
-                                        <td><?php
-                                            $input = round($value['avg_waktu_task6']);
-                                            echo  gmdate('H:i:s', $input);
-                                            ?>
-                                        </td>
-                                </tbody>
+                                                ?>
+                                            </td>
+                                            <td><?php
+                                                $input = round($value['avg_waktu_task1']);
+                                                echo  gmdate('H:i:s', $input);
+                                                ?>
+                                            </td>
+                                            <td><?php
+                                                $input = round($value['avg_waktu_task2']);
+                                                echo  gmdate('H:i:s', $input);
+                                                ?>
+                                            </td>
+                                            <td><?php
+                                                $input = round($value['avg_waktu_task3']);
+                                                echo  gmdate('H:i:s', $input);
+                                                ?>
+                                            </td>
+                                            <td><?php
+                                                $input = round($value['avg_waktu_task4']);
+                                                echo  gmdate('H:i:s', $input);
+                                                ?>
+                                            </td>
+                                            <td><?php
+                                                $input = round($value['waktu_task5']);
+                                                echo  gmdate('H:i:s', $input);
+                                                ?>
+                                            </td>
+                                            <td><?php
+                                                $input = round($value['avg_waktu_task6']);
+                                                echo  gmdate('H:i:s', $input);
+                                                ?>
+                                            </td>
+                                    </tbody>
             <?php
-                            endforeach;
-                        }
-                    endforeach;
+                                endforeach;
+                            }
+                        endforeach;
+                    }
                 endforeach;
             }
             ?>

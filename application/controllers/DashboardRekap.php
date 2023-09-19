@@ -13,15 +13,16 @@ class DashboardRekap extends CI_Controller
 	{
 
 		$tgl_input = $this->input->post('tgl_input', true);
+
 		if (!empty($tgl_input)) {
 
 			// echo substr($tgl_input, 0, 4);
-			echo substr($tgl_input, 5, 2);
+			// echo substr($tgl_input, 5, 2);
 			// die($tgl_input);
 			// die($tgl_input);
 			$api_data = $this->Rekapmodel->getdata_curl($tgl_input);
 		} else {
-			$api_data = null;
+			$api_data =  $this->Rekapmodel->getdata_curl(date('Y-m_d'));
 		}
 
 		$data['app_name'] = 'Dashboard App';
@@ -37,16 +38,26 @@ class DashboardRekap extends CI_Controller
 
 	public function rekap_perbulan()
 	{
-		$tgl_input = $this->input->post('tgl_input', true);
-		if (!empty($tgl_input)) {
+		$bulan = $this->input->post('databulan', true);
+		$tahun = $this->input->post('datatahun', true);
 
-			$tahun =  substr($tgl_input, 0, 4);
-			$bulan =  substr($tgl_input, 5, 2);
+
+
+		if (!empty($bulan) || !empty($tahun)) {
+			// echo 'ini bulan : ' . $bulan;
+			// echo 'ini tahun : ' . $tahun;
+			// $tahun =  substr($tgl_input, 0, 4);
+			// $bulan =  substr($tgl_input, 5, 2);
 			// die($tgl_input);
 			// die($tgl_input);
 			$apidata_prbln = $this->Rekapmodel->getdata_curl_perbulan($bulan, $tahun);
 		} else {
-			$apidata_prbln = null;
+			// $tgl = date('d-m-Y');
+
+			// $tahun =  substr($tgl, 0, 4);
+			// $bulan =  substr($tgl, 5, 2);
+			// echo $tahun;
+			$apidata_prbln = $this->Rekapmodel->getdata_curl_perbulan('01', '2023');;
 		}
 
 		$data['app_name'] = 'Dashboard App';
