@@ -21,13 +21,22 @@ class DashboardRekap extends CI_Controller
 			// die($tgl_input);
 			// die($tgl_input);
 			$api_data = $this->Rekapmodel->getdata_curl($tgl_input);
+			if (!empty($api_data)) {
+
+				$totalantrean = $this->Rekapmodel->jml_antrean_tgl($api_data);
+			} else {
+				$totalantrean = 0;
+			}
 		} else {
 			$api_data =  $this->Rekapmodel->getdata_curl(date('Y-m_d'));
+			$totalantrean = 0;
 		}
+
 
 		$data['app_name'] = 'Dashboard App';
 		$data['title'] = 'Dashboard Monitoring Pertanggal';
 		$data['curl'] = $api_data;
+		$data['total_antrean'] = $totalantrean;
 		$data['status'] = 'rekap';
 
 		$this->load->view('templates/header', $data);
@@ -51,18 +60,32 @@ class DashboardRekap extends CI_Controller
 			// die($tgl_input);
 			// die($tgl_input);
 			$apidata_prbln = $this->Rekapmodel->getdata_curl_perbulan($bulan, $tahun);
+
+			// $totalAntreanbln = array_reduce($apidata_prbln['response'], function ($carry, $item) {
+			// 	return array([$carry + $item['jumlah_antrean']]);
+			// }, 0);
+			// echo ($totalAntrean);
+			if (!empty($apidata_prbln)) {
+				if (is_array($apidata_prbln) || is_object($apidata_prbln)) {
+					$totalAntrean =  $this->Rekapmodel->jml_antrean_bln($apidata_prbln);
+				}
+			} else {
+				$totalAntrean = 0;
+			}
 		} else {
 			// $tgl = date('d-m-Y');
 
-			// $tahun =  substr($tgl, 0, 4);
-			// $bulan =  substr($tgl, 5, 2);
+			$tahun =   date('Y');
+			$bulan =   date('m');
 			// echo $tahun;
-			$apidata_prbln = $this->Rekapmodel->getdata_curl_perbulan('01', '2023');;
+			$apidata_prbln = $this->Rekapmodel->getdata_curl_perbulan($tahun, $bulan);;
+			$totalAntrean = 0;
 		}
 
 		$data['app_name'] = 'Dashboard App';
 		$data['title'] = 'Dashboard Monitoring Perbulan';
-		$data['curl'] = $apidata_prbln;
+		$data['curl'] = $apidata_prbln['response'];
+		$data['total_antrean'] = $totalAntrean;
 		$data['status'] = 'rekap';
 		// $data['data'] = $this->RekapModel->getdata_curl_perbulan(''
 		// var_dump($apidata_prbln);

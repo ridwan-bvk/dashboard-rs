@@ -73,6 +73,47 @@ class Rekapmodel extends CI_Model
 
         curl_close($curl);
         $api_data_antrian = json_decode($response, true);
+
         return $api_data_antrian;
+    }
+
+    function jml_antrean_tgl($data)
+    {
+        // {     "metaData": {"code": "200", "message": "OK" },       
+        //     "response": { "list": [   { "jumlah_antrean": 2,},] }
+        // }
+        $list = $data['response']['list'];
+
+        // foreach ($list as $item) {
+        // 	$totalAntrean += $item['jumlah_antrean'];
+        // }
+
+        $totalAntrean = array_reduce($list, function ($carry, $item) {
+            return $carry + $item['jumlah_antrean'];
+        }, 0);
+
+        return $totalAntrean;
+    }
+
+    function jml_antrean_bln($data_list)
+    {
+        // {     "metaData": {"code": "200", "message": "OK" },       
+        //     "response":  [   { "jumlah_antrean": 2,},] 
+        // }
+        // $list = $data_list['response'];
+
+        // $totalAntreanbln = array_reduce($list, function ($carry, $item) {
+        //     return $carry + $item['jumlah_antrean'];
+        // }, 0);
+        // var_dump($data_list);
+        // $jumlahAntreanArray = array_column($data_list['response'], 'jumlah_antrean');
+        // $totalAntrean = array_sum($jumlahAntreanArray);
+        $totalAntrean = 0;
+
+        foreach ($data_list['response'] as $item) {
+            $totalAntrean = $totalAntrean + $item['jumlah_antrean'];
+        }
+
+        return $totalAntrean;
     }
 }

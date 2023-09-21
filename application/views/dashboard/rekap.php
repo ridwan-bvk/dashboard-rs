@@ -128,11 +128,18 @@
             <?php
                                 endforeach;
                             }
+
                         endforeach;
                     }
+
                 endforeach;
             }
             ?>
+            <tr>
+                <td colspan="3">Jumlah </td>
+                <td><?= $total_antrean ?> </td>
+            </tr>
+
         </table>
     </div>
 
