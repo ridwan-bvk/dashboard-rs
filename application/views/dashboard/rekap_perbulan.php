@@ -6,6 +6,18 @@
                 6 (akhir waktu tunggu farmasi/mulai waktu layan farmasi membuat obat), 
                 7 (akhir waktu obat selesai dibuat),
                 99 (tidak hadir/batal) -->
+
+                <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu1">Menu 1</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu2">Menu 2</a>
+    </li>
+  </ul>
 <div class="card">
 
     <!-- /.card-header -->

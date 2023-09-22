@@ -23,7 +23,9 @@ class DashboardRekap extends CI_Controller
 			$api_data = $this->Rekapmodel->getdata_curl($tgl_input);
 			if (!empty($api_data)) {
 
-				$totalantrean = $this->Rekapmodel->jml_antrean_tgl($api_data);
+				if (is_array($api_data) || is_object($api_data)) {
+					$totalantrean = $this->Rekapmodel->jml_antrean_tgl($api_data);
+				}
 			} else {
 				$totalantrean = 0;
 			}

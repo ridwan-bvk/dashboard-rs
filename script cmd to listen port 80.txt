@@ -1,1 +1,4 @@
 netstat -ano | findstr :80
+
+to kill
+ taskkill /PID 4292 /F

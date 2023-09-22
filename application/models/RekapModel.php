@@ -82,16 +82,25 @@ class Rekapmodel extends CI_Model
         // {     "metaData": {"code": "200", "message": "OK" },       
         //     "response": { "list": [   { "jumlah_antrean": 2,},] }
         // }
-        $list = $data['response']['list'];
-
         // foreach ($list as $item) {
         // 	$totalAntrean += $item['jumlah_antrean'];
         // }
+        if (count($data) > 0 )  {
+        //     $list = $data['response']['list'];
+        //     // var_dump($list);
+        //     $totalAntrean = array_reduce($list, function ($carry, $item) {
+        //     return $carry + $item['jumlah_antrean'];
+        // }, 0);
+        $totalAntrean = 0;
 
-        $totalAntrean = array_reduce($list, function ($carry, $item) {
-            return $carry + $item['jumlah_antrean'];
-        }, 0);
+        foreach ($data['response']['list'] as $item) {
+            $totalAntrean = $totalAntrean + $item['jumlah_antrean'];
+        }
 
+        
+        }else{
+            $totalAntrean = 0;
+        }
         return $totalAntrean;
     }
 
@@ -108,11 +117,19 @@ class Rekapmodel extends CI_Model
         // var_dump($data_list);
         // $jumlahAntreanArray = array_column($data_list['response'], 'jumlah_antrean');
         // $totalAntrean = array_sum($jumlahAntreanArray);
+        if (count($data_list) > 0 ) {
         $totalAntrean = 0;
 
-        foreach ($data_list['response'] as $item) {
-            $totalAntrean = $totalAntrean + $item['jumlah_antrean'];
+        $totalAntrean = array_reduce($data_list['response'] , function ($carry, $item) {
+                return $carry + $item['jumlah_antrean'];
+            }, 0);
+        // foreach ($data_list['response'] as $item) {
+        //     // $totalAntrean = $totalAntrean + $item['jumlah_antrean'];
+        // }
+        }else{
+            $totalAntrean = 0;
         }
+
 
         return $totalAntrean;
     }
