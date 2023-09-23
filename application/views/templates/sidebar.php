@@ -1,4 +1,4 @@
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini sidebar-collapse">
     <div class="wrapper">
 
         <!-- Navbar -->
@@ -8,10 +8,22 @@
             if ($status == 'rekap') {
             ?>
                 <ul class="navbar-nav">
-                    <li class="nav-item">
+                    <!-- button push menu -->
+                    <!-- <li class="nav-item">
                         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-                    </li>
-
+                    </li> -->
+                    <!--  -->
+                    <!-- <ul class="nav nav-pills h5" id="pills-tab" role="tablist" style="fon">
+                        <li class="nav-item ">
+                            <a class="nav-link active " id="" data-toggle="pill" href="<?= base_url('DashboardRekap') ?>" role="tab" aria-controls="pills-home" aria-selected="<?= ($status == 'rekap') ? true : false ?>">Rekap Pertanggal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Rekap Perbulan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Detail</a>
+                        </li>
+                    </ul> -->
                     <li class="nav-item d-none d-sm-inline-block">
                         <a href="<?= base_url('DashboardRekap') ?>" class="nav-link  ">
                             <button class="btn btn-sm btn-success" type="button">Pertanggal</button></a>
@@ -23,8 +35,19 @@
 
                         </a>
                     </li>
+                    <li class="nav-item d-none d-sm-inline-block">
+
+                        <a href="<?= base_url('DashboardRekap/rekap_persentase_sep') ?>" class="nav-link ">
+                            <button class="btn btn-sm btn-success" type="button" aria-disabled="<?= ($status == 'rekap') ? false : true ?>">Persentase SEP</button>
+
+                        </a>
+                    </li>
                 </ul>
-            <?php } ?>
+            <?php } elseif ($status == 'detail') { ?>
+                <!-- <h5><?= $title ?></h5> -->
+            <?php
+            };
+            ?>
 
             <!-- SEARCH FORM -->
             <!-- <form class="form-inline ml-3">
@@ -48,7 +71,7 @@
             </ul> -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i class="fas fa-th-large"></i></a>
+                    <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="false" data-slide="true" href="#" role="button"><i class="fas fa-th-large"></i></a>
                 </li>
             </ul>
         </nav>

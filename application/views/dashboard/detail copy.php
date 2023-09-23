@@ -1,26 +1,26 @@
 <div class="card">
-    <div class="card-header">
+    <div class="row row-cols-4">
         <form action="<?= base_url('DashboardDetail/index') ?>" method='POST' onsubmit="return validateForm()" name="myForm">
-            <div class="input-group input-group-sm mb-1 col-sm-4">
-                <div class="input-group-prepend ">
-                    <span class="input-group-text" id="inputGroup-sizing-sm">Tanggal</span>
+            <div class="form-row align-items-center">
+                <div class="col-auto ">
+                    <input type="date" class="form-control date" id="tgldata" name="tgl_input" value="<?php echo date('Y-m-d'); ?>" required oninvalid="this.setCustomValidity('Tanggal harus diisi.')">
                 </div>
-                <input type="date" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" d="tgldata" name="tgl_input" value="<?php echo date('Y-m-d'); ?>" required oninvalid="this.setCustomValidity('Tanggal harus diisi.')">
-                <button type="submit" class="btn btn-primary btn-sm ml-2" id="btn_retrieve" name="btn_retrieve">Retrieve</button>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mb-2" id="btn_retrieve">Retrieve</button>
+                </div>
             </div>
         </form>
-        <!-- <h3 class="card-title">DataTable with default features</h3> -->
     </div>
     <!-- /.card-header -->
     <div class="card-body">
         <table id="example1" class="table table-bordered table-striped">
             <thead>
-                <tr class="table-primary">
+                <tr>
                     <th>No</th>
-                    <th>No RM</th>
                     <th>Jenis Kunjungan</th>
                     <th>No Referensi</th>
                     <th>KD Booking(s)</th>
+                    <th>No RM</th>
                     <th>nik</th>
                     <th>no kapst</th>
                     <th>noantrean</th>
@@ -32,19 +32,18 @@
                     <th>tanggal</th>
                 </tr>
             </thead>
-            <tbody>
-                <?php
-                if (!empty($curl)) {
-                    $no = 1;
-                    foreach ($curl['response'] as $item) {
-                ?>
-
+            <?php
+            if (!empty($curl)) {
+                $no = 1;
+                foreach ($curl['response'] as $item) {
+            ?>
+                    <tbody>
                         <tr>
                             <td><?= $no++ ?></td>
-                            <td><?= $item['norekammedis']; ?></td>
                             <td><?= $item['jeniskunjungan'] ?></td>
                             <td><?= $item['nomorreferensi']; ?></td>
                             <td><?= $item['kodebooking']; ?></td>
+                            <td><?= $item['norekammedis']; ?></td>
                             <td><?= $item['nik']; ?></td>
                             <td><?= $item['nokapst']; ?></td>
                             <td><?= $item['noantrean']; ?></td>
@@ -61,33 +60,12 @@
                             <td><?= $item['tanggal']; ?> </td>
 
                         </tr>
+                    </tbody>
+            <?php
 
-                <?php
-
-                    }
                 }
-                ?>
-            </tbody>
-
-            <tfoot>
-                <tr class="table-primary">
-                    <th>No</th>
-                    <th>No RM</th>
-                    <th>Jenis Kunjungan</th>
-                    <th>No Referensi</th>
-                    <th>KD Booking(s)</th>
-                    <th>nik</th>
-                    <th>no kapst</th>
-                    <th>noantrean</th>
-                    <th>kodepoli</th>
-                    <th>sumberdata</th>
-                    <th>estimasi dilayani</th>
-                    <th>kode dokter</th>
-                    <th>jam praktek</th>
-                    <th>tanggal</th>
-                </tr>
-            </tfoot>
+            }
+            ?>
         </table>
     </div>
-    <!-- /.card-body -->
 </div>

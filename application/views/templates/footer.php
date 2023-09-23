@@ -39,6 +39,8 @@
             $("#example1").DataTable({
                 "responsive": true,
                 "autoWidth": false,
+                "paging": true,
+                "searching": true,
             });
             $('#example2').DataTable({
                 "paging": true,
@@ -46,8 +48,12 @@
                 "searching": false,
                 "ordering": true,
                 "info": true,
-                "autoWidth": false,
+                "autoWidth": true,
                 "responsive": true,
+            });
+            $("#example").DataTable({
+                "responsive": true,
+                "autoWidth": false,
             });
         });
     </script>

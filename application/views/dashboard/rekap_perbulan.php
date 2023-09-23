@@ -1,77 +1,54 @@
-<!-- 1 (mulai waktu tunggu admisi), 
-                2 (akhir waktu tunggu admisi/mulai waktu layan admisi), 
-                3 (akhir waktu layan admisi/mulai waktu tunggu poli), 
-                4 (akhir waktu tunggu poli/mulai waktu layan poli),  
-                5 (akhir waktu layan poli/mulai waktu tunggu farmasi), 
-                6 (akhir waktu tunggu farmasi/mulai waktu layan farmasi membuat obat), 
-                7 (akhir waktu obat selesai dibuat),
-                99 (tidak hadir/batal) -->
-
-                <ul class="nav nav-tabs" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#menu1">Menu 1</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#menu2">Menu 2</a>
-    </li>
-  </ul>
 <div class="card">
+    <div class="card-header">
+        <form action="<?= base_url('DashboardRekap/rekap_perbulan') ?>" method='POST' onsubmit="return validateForm()" name="myForm" class="form-inline">
+            <div class="input-group input-group-sm mb-1 col-sm-4">
+                <div class="input-group-prepend ">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Bulan</span>
+                </div>
+                <select id="input_bulan" name="databulan" class="form-control">
+                    <option value="01">Januari</option>
+                    <option value="02">Februari</option>
+                    <option value="03">Maret</option>
+                    <option value="04">April</option>
+                    <option value="05">Mei</option>
+                    <option value="06">Juni</option>
+                    <option value="07">Juli</option>
+                    <option value="08">Agustus</option>
+                    <option value="09">September</option>
+                    <option value="10">Oktober</option>
+                    <option value="11">November</option>
+                    <option value="12">Desember</option>
 
-    <!-- /.card-header -->
-    <div class="card-body">
-        <!-- <div class="row row-cols-4">
-            <form action="<?= base_url('DashboardRekap/index') ?>" method='POST' onsubmit="return validateForm()" name="myForm">
-                <div class="form-row align-items-center">
-                    <div class="col-auto ">
-                        <input type="date" class="form-control date" id="tgldata" name="tgl_input" value="<?php echo date('Y-m-d'); ?>" required oninvalid="this.setCustomValidity('Tanggal harus diisi.')">
-                    </div>
-                    <div class="col-auto">
-                        <button type="submit" class="btn btn-primary mb-2" id="btn_retrieve">Retrieve</button>
-                    </div>
-                </div>
-            </form>
-        </div> -->
-        <form action="<?= base_url('DashboardRekap/rekap_perbulan') ?>" method='POST' onsubmit="return validateForm()" name="myForm">
-            <div class="form-row">
-                <div class="form-group col-md-2">
-                    <label for="input_bulan">Bulan</label>
-                    <select id="input_bulan" name="databulan" class="form-control">
-                        <?php for ($i = 1; $i <= 9; $i++) { ?>
-                            <option><?= '0' . $i ?></option>
-                        <?php } ?>
+                </select>
 
-                        <!-- <option>2</option> -->
-                    </select>
+                <div class="input-group-prepend ml-5">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Tahun</span>
                 </div>
-                <div class="form-group col-md-2">
-                    <label for="input_tahun">Tahun</label>
-                    <select id="input_tahun" name="datatahun" class="form-control">
-                        <?php for ($i = 5; $i <= 9; $i++) { ?>
-                            <option><?= '201' . $i ?></option>
-                        <?php } ?>
-                        <?php for ($i = 0; $i <= 9; $i++) { ?>
-                            <option><?= '202' . $i ?></option>
-                        <?php } ?>
-                        <!-- <option>2</option> -->
-                    </select>
-                </div>
-                <div class="col-auto">
-                    <button type="submit" class="btn btn-primary mb-2" id="btn_retrieve">Retrieve</button>
-                </div>
+                <select id="input_tahun" name="datatahun" class="form-control">
+                    <option selected>2023</option>
+                    <option>2019</option>
+                    <?php for ($i = 0; $i <= 9; $i++) { ?>
+                        <option>><?= '202' . $i ?></option>
+                    <?php } ?>
+                    <?php for ($i = 0; $i <= 9; $i++) { ?>
+                        <option><?= '203' . $i ?></option>
+                    <?php } ?>
+
+                </select>
+                <button type="submit" class="btn btn-primary btn-sm ml-2" id="btn_retrieve" name="btn_retrieve">Retrieve</button>
             </div>
         </form>
-        <table id="example1" class="table table-bordered table-striped table-responsive">
-            <!-- class="table table-bordered table-striped"> -->
+        <!-- <h3 class="card-title">DataTable with default features</h3> -->
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
             <thead>
-                <tr class="text-center">
-                    <th scope="col">No</th>
-                    <th scope="col">Kode PPK</th>
-                    <th scope="col">Nama PPK</th>
-                    <th scope="col">Poli</th>
-                    <th scope="col">Jumlah Antrian</th>
+                <tr class="table-primary">
+                    <th>No</th>
+                    <th>PPK</th>
+                    <th>Poli</th>
+                    <th>Jumlah Antrian</th>
                     <th scope="col">Waktu Task 1</th>
                     <th scope="col">Waktu Task 2</th>
                     <th scope="col">Waktu Task 3</th>
@@ -84,22 +61,19 @@
                     <th scope="col">Rata-rata Task 4</th>
                     <th scope="col">Rata-rata Task 5</th>
                     <th scope="col">Rata-rata Task 6</th>
-
-
                 </tr>
             </thead>
-            <?php
-            if (!empty($curl)) {
-                $no = 1;
-                if (is_array($curl) || is_object($curl)) {
-                    foreach ($curl as $value) :
+            <tbody>
+                <?php
+                if (!empty($curl)) {
+                    $no = 1;
+                    if (is_array($curl) || is_object($curl)) {
+                        foreach ($curl as $value) :
 
 
-            ?>
-                        <tbody>
+                ?>
                             <tr>
                                 <td><?= $no++ ?></td>
-                                <td><?= $value['kdppk'] ?></td>
                                 <td><?= $value['nmppk'] ?></td>
                                 <td><?= $value['namapoli'] ?></td>
                                 <td><?= $value['jumlah_antrean'] ?></td>
@@ -160,7 +134,7 @@
                                     ?>
                                 </td>
                                 <td><?php
-                                    $input = round($value['avg_waktu_task5']);
+                                    $input = round($value['waktu_task5']);
                                     echo  gmdate('H:i:s', $input);
                                     ?>
                                 </td>
@@ -169,44 +143,101 @@
                                     echo  gmdate('H:i:s', $input);
                                     ?>
                                 </td>
+                            </tr>
+                <?php
 
-
-
-                        </tbody>
-            <?php
-
-                    endforeach;
+                        endforeach;
+                    }
                 }
-            }
-            ?>
-            <tr>
-                <td colspan="4">
-                    jumlah antrian
-                </td>
-                <td colspan="4">
-                    <?= $total_antrean ?>
-                </td>
+                ?>
+            </tbody>
+            <tr class="table-info">
+                <td colspan="3"> Jumlah Antrian</td>
+                <td><?= $total_antrean ?> </td>
+                <?php for ($i = 1; $i <= 12; $i++) { ?>
+                    <td></td>
+                <?php };
+                ?>
             </tr>
+            <tfoot>
+                <tr class="table-primary">
+                    <th>No</th>
+                    <th>PPK</th>
+                    <th>Poli</th>
+                    <th>Jumlah Antrian</th>
+                    <th scope="col">Waktu Task 1</th>
+                    <th scope="col">Waktu Task 2</th>
+                    <th scope="col">Waktu Task 3</th>
+                    <th scope="col">Waktu Task 4</th>
+                    <th scope="col">Waktu Task 5</th>
+                    <th scope="col">Waktu Task 6</th>
+                    <th scope="col">Rata-rata Task 1</th>
+                    <th scope="col">Rata-rata Task 2</th>
+                    <th scope="col">Rata-rata Task 3</th>
+                    <th scope="col">Rata-rata Task 4</th>
+                    <th scope="col">Rata-rata Task 5</th>
+                    <th scope="col">Rata-rata Task 6</th>
+                </tr>
+            </tfoot>
         </table>
     </div>
+    <!-- /.card-body -->
 </div>
+<div id="accordion">
 
-<!-- <script>
-var url = 'https://simrs.rsukotabanjar.co.id/ws-rsubanjar/dashboardpertgl';
-var formData = new FormData();
-formData.append('tanggal', '2023-09-15');
-formData.append('waktu', 'rs');
+    <div class="card">
+        <div class="card-header">
+            <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                Keterangan Task
+            </a>
+        </div>
+        <div id="collapseOne" class="collapse" data-parent="#accordion">
+            <div class="card-body">
+                <table class="table table-borderless">
+                    <thead>
+                        <!-- <tr> -->
+                        <!-- <th></th>
+                            <th></th>
+                            <th></th> -->
+                        <!-- </tr> -->
+                    </thead>
+                    <tbody>
 
+                        <tr>
+                            <td>
+                                <dl>
+                                    <dt>Task 1</dt>
+                                    <dd>- mulai waktu tunggu admisi</dd>
+                                    <dt>Task 2</dt>
+                                    <dd>- akhir waktu tunggu admisi/mulai waktu layan admisi</dd>
+                                    <dt>Task 3</dt>
+                                    <dd>- akhir waktu layan admisi/mulai waktu tunggu poli</dd>
+                                </dl>
+                            </td>
+                            <td>
+                                <dl>
+                                    <dt>Task 4</dt>
+                                    <dd>- akhir waktu tunggu poli/mulai waktu layan poli</dd>
+                                    <dt>Task 5</dt>
+                                    <dd>- akhir waktu layan poli/mulai waktu tunggu farmasi</dd>
+                                    <dt>Task 6</dt>
+                                    <dd>- akhir waktu tunggu farmasi/mulai waktu layan farmasi membuat obat</dd>
+                                </dl>
+                            </td>
+                            <td>
+                                <dl>
+                                    <dt>Task 7</dt>
+                                    <dd>- akhir waktu obat selesai dibuat</dd>
+                                    <dt>Task 99</dt>
+                                    <dd>- tidak hadir/batal</dd>
 
-fetch(url, {
-        method: 'POST',
-        body: formData
-    })
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(body) {
-        // console.log(body);
-        document.cookie = 'data' + body;
-    });
-</script> -->
+                                </dl>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
