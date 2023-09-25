@@ -42,7 +42,22 @@
                         <tr>
                             <td><?= $no++ ?></td>
                             <td><?= $item['norekammedis']; ?></td>
-                            <td><?= $item['jeniskunjungan'] ?></td>
+                            <td><?php
+                            $jnsknjngn =  $item['jeniskunjungan'];
+                            switch  ($jnsknjngn){
+                                case '1':
+                                    echo 'Rujukan FKTP';
+                                   break;
+                                case '2':
+                                    echo 'Rujukan Internal';
+                                    break;
+                                case '3':
+                                    echo 'Rujukan Antar RS';
+                                break;
+
+                            }
+                            
+                            ?></td>
                             <td><?= $item['nomorreferensi']; ?></td>
                             <td><?= $item['kodebooking']; ?></td>
                             <td><?= $item['nik']; ?></td>
@@ -69,7 +84,7 @@
                 ?>
             </tbody>
 
-            <tfoot>
+            <!-- <tfoot>
                 <tr class="table-primary">
                     <th>No</th>
                     <th>No RM</th>
@@ -86,7 +101,7 @@
                     <th>jam praktek</th>
                     <th>tanggal</th>
                 </tr>
-            </tfoot>
+            </tfoot> -->
         </table>
     </div>
     <!-- /.card-body -->

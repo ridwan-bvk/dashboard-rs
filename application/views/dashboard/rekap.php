@@ -1,11 +1,11 @@
 <div class="card">
     <div class="card-header">
-        <form action="<?= base_url('DashboardRekap/index') ?>" method='POST' onsubmit="return validateForm()" name="myForm">
+        <form action="<?= base_url('DashboardRekap/index/') ?>" method='POST' onsubmit="return validateForm()" name="myForm">
             <div class="input-group input-group-sm mb-1 col-sm-4">
                 <div class="input-group-prepend ">
                     <span class="input-group-text" id="inputGroup-sizing-sm">Tanggal</span>
                 </div>
-                <input type="date" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" d="tgldata" name="tgl_input" value="<?php echo date('Y-m-d'); ?>" required oninvalid="this.setCustomValidity('Tanggal harus diisi.')">
+                <input type="text"  name="tanggal"  class="form-control datepicker" data-date-end-date="0d" aria-label="Small"  name="tgl_input" required oninvalid="this.setCustomValidity('Tanggal harus diisi.')" value="<?= date('d/m/Y'); ?>"/>
                 <button type="submit" class="btn btn-primary btn-sm ml-2" id="btn_retrieve" name="btn_retrieve">Retrieve</button>
             </div>
         </form>
@@ -136,7 +136,7 @@
                 <?php };
                 ?>
             </tr>
-            <tfoot>
+            <!-- <tfoot>
                 <tr class="table-primary">
                     <th>No</th>
                     <th>PPK</th>
@@ -155,7 +155,7 @@
                     <th scope="col">Rata-rata Task 5</th>
                     <th scope="col">Rata-rata Task 6</th>
                 </tr>
-            </tfoot>
+            </tfoot> -->
         </table>
     </div>
     <!-- /.card-body -->
@@ -219,11 +219,3 @@
     </div>
 </div>
 
-<!-- 1 (mulai waktu tunggu admisi), 
-                2 (akhir waktu tunggu admisi/mulai waktu layan admisi), 
-                3 (akhir waktu layan admisi/mulai waktu tunggu poli), 
-                4 (akhir waktu tunggu poli/mulai waktu layan poli),  
-                5 (akhir waktu layan poli/mulai waktu tunggu farmasi), 
-                6 (akhir waktu tunggu farmasi/mulai waktu layan farmasi membuat obat), 
-                7 (akhir waktu obat selesai dibuat),
-                99 (tidak hadir/batal) -->

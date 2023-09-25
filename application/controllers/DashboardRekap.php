@@ -11,9 +11,14 @@ class DashboardRekap extends CI_Controller
 
 	public function Index()
 	{
-
+		$tgl_input = $this->input->post('tgl_input', true);
 		$button = $this->input->post('btn_retrieve', true);
+		
+		
 		if (isset($button)) {
+			
+			echo $button;
+			echo '$tgl_input';
 
 			$tgl_input = $this->input->post('tgl_input', true);
 			if (!empty($tgl_input)) {

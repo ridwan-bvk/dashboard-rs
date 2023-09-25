@@ -33,6 +33,9 @@
     <script src="<?= base_url('assets/templates') ?>/dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="<?= base_url('assets/templates') ?>/dist/js/demo.js"></script>
+<!-- datepicler] -->
+    
+    <script src="<?= base_url('assets')?>/js/datepicker/js/bootstrap-datepicker.min.js"></script>
     <!-- page script -->
     <script>
         $(function() {
@@ -54,6 +57,12 @@
             $("#example").DataTable({
                 "responsive": true,
                 "autoWidth": false,
+            });
+            $('.datepicker').datepicker({
+                format: 'dd/mm/yyyy',
+                autoclose: true,
+                 todayHighlight: true,
+                //  startDate: '-3d',
             });
         });
     </script>
