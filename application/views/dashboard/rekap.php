@@ -5,7 +5,16 @@
                 <div class="input-group-prepend ">
                     <span class="input-group-text" id="inputGroup-sizing-sm">Tanggal</span>
                 </div>
-                <input type="text"  name="tanggal"  class="form-control datepicker" data-date-end-date="0d" aria-label="Small"  name="tgl_input" required oninvalid="this.setCustomValidity('Tanggal harus diisi.')" value="<?= date('d/m/Y'); ?>"/>
+                <input type="text" class="form-control datepicker" data-date-end-date="0d" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="tgl_input" value="<?php
+                                                                                                                                                                                $tgl_input = $this->input->post('tgl_input', true);
+                                                                                                                                                                                if (isset($tgl_input)) {
+                                                                                                                                                                                    echo date("d-m-Y", strtotime($tgl_input));
+                                                                                                                                                                                } else {
+                                                                                                                                                                                    echo date('d-m-Y');
+                                                                                                                                                                                }
+                                                                                                                                                                                ?>" required oninvalid="this.setCustomValidity('Tanggal harus diisi.')" readonly>
+
+
                 <button type="submit" class="btn btn-primary btn-sm ml-2" id="btn_retrieve" name="btn_retrieve">Retrieve</button>
             </div>
         </form>
@@ -218,4 +227,3 @@
         </div>
     </div>
 </div>
-

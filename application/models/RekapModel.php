@@ -93,13 +93,14 @@ class Rekapmodel extends CI_Model
 
         if (count($data) > 0) {
             $totalAntrean = 0;
+            if (count($data['response']['list']) > 0) {
+                foreach ($data['response']['list'] as $item) {
 
-            foreach ($data['response']['list'] as $item) {
-
-                if (!isset($item['jumlah_antrean'])) {
-                    $item['jumlah_antrean'] = 0;
+                    if (!isset($item['jumlah_antrean'])) {
+                        $item['jumlah_antrean'] = 0;
+                    }
+                    $totalAntrean = $totalAntrean + $item['jumlah_antrean'];
                 }
-                $totalAntrean = $totalAntrean + $item['jumlah_antrean'];
             }
         } else {
 

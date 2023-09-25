@@ -27,12 +27,21 @@
                 <select id="input_tahun" name="datatahun" class="form-control">
                     <option selected>2023</option>
                     <option>2019</option>
-                    <?php for ($i = 0; $i <= 9; $i++) { ?>
-                        <option>><?= '202' . $i ?></option>
-                    <?php } ?>
-                    <?php for ($i = 0; $i <= 9; $i++) { ?>
-                        <option><?= '203' . $i ?></option>
-                    <?php } ?>
+                    <option>2020</option>
+                    <option>2021</option>
+                    <option>2022</option>
+                    <option>2023</option>
+                    <option>2024</option>
+                    <option>2025</option>
+                    <option>2026</option>
+                    <option>2027</option>
+                    <option>2028</option>
+                    <option>2029</option>
+                    <option>2030</option>
+                    <!-- <?php for ($i = 0; $i <= 9; $i++) { ?> -->
+                    <!-- <option>><?= '202' . $i ?></option> -->
+                    <!-- <?php } ?> -->
+
 
                 </select>
                 <button type="submit" class="btn btn-primary btn-sm ml-2" id="btn_retrieve" name="btn_retrieve">Retrieve</button>
@@ -159,7 +168,7 @@
                 <?php };
                 ?>
             </tr>
-            <tfoot>
+            <!-- <tfoot>
                 <tr class="table-primary">
                     <th>No</th>
                     <th>PPK</th>
@@ -178,7 +187,7 @@
                     <th scope="col">Rata-rata Task 5</th>
                     <th scope="col">Rata-rata Task 6</th>
                 </tr>
-            </tfoot>
+            </tfoot> -->
         </table>
     </div>
     <!-- /.card-body -->

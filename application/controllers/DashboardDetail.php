@@ -15,7 +15,7 @@ class DashboardDetail extends CI_Controller
         $button = $this->input->post('btn_retrieve', true);
         if (isset($button)) {
             $tgl_input = $this->input->post('tgl_input', true);
-
+            $tgl_input = date("Y-m-d", strtotime($tgl_input));
             if (!empty($tgl_input)) {
                 $api_data_antrian = $this->Rekapmodel->getdata_dashboard_antrian_tgl($tgl_input);
             } else {

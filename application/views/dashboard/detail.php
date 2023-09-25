@@ -5,7 +5,17 @@
                 <div class="input-group-prepend ">
                     <span class="input-group-text" id="inputGroup-sizing-sm">Tanggal</span>
                 </div>
-                <input type="date" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" d="tgldata" name="tgl_input" value="<?php echo date('Y-m-d'); ?>" required oninvalid="this.setCustomValidity('Tanggal harus diisi.')">
+                <!-- <input type="date" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" d="tgldata" name="tgl_input" value="<?php echo date('Y-m-d'); ?>" required oninvalid="this.setCustomValidity('Tanggal harus diisi.')"> -->
+                <input type="text" class="form-control datepicker" data-date-end-date="0d" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="tgl_input" value="<?php
+                                                                                                                                                                                $tgl_input = $this->input->post('tgl_input', true);
+                                                                                                                                                                                if (isset($tgl_input)) {
+                                                                                                                                                                                    echo date("d-m-Y", strtotime($tgl_input));
+                                                                                                                                                                                } else {
+                                                                                                                                                                                    echo date('d-m-Y');
+                                                                                                                                                                                }
+                                                                                                                                                                                ?>" required oninvalid="this.setCustomValidity('Tanggal harus diisi.')" readonly>
+
+
                 <button type="submit" class="btn btn-primary btn-sm ml-2" id="btn_retrieve" name="btn_retrieve">Retrieve</button>
             </div>
         </form>
@@ -43,21 +53,20 @@
                             <td><?= $no++ ?></td>
                             <td><?= $item['norekammedis']; ?></td>
                             <td><?php
-                            $jnsknjngn =  $item['jeniskunjungan'];
-                            switch  ($jnsknjngn){
-                                case '1':
-                                    echo 'Rujukan FKTP';
-                                   break;
-                                case '2':
-                                    echo 'Rujukan Internal';
-                                    break;
-                                case '3':
-                                    echo 'Rujukan Antar RS';
-                                break;
+                                $jnsknjngn =  $item['jeniskunjungan'];
+                                switch ($jnsknjngn) {
+                                    case '1':
+                                        echo 'Rujukan FKTP';
+                                        break;
+                                    case '2':
+                                        echo 'Rujukan Internal';
+                                        break;
+                                    case '3':
+                                        echo 'Rujukan Antar RS';
+                                        break;
+                                }
 
-                            }
-                            
-                            ?></td>
+                                ?></td>
                             <td><?= $item['nomorreferensi']; ?></td>
                             <td><?= $item['kodebooking']; ?></td>
                             <td><?= $item['nik']; ?></td>
