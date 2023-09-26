@@ -60,9 +60,10 @@ class DashboardRekap extends CI_Controller
 	public function rekap_perbulan()
 	{
 		$button = $this->input->post('btn_retrieve', true);
+		$bulan = $this->input->post('databulan', true);
+		$tahun = $this->input->post('datatahun', true);
+
 		if (isset($button)) {
-			$bulan = $this->input->post('databulan', true);
-			$tahun = $this->input->post('datatahun', true);
 
 			if (!empty($bulan) || !empty($tahun)) {
 				// echo 'ini bulan : ' . $bulan;
@@ -103,6 +104,8 @@ class DashboardRekap extends CI_Controller
 		$data['curl'] = $apidata_prbln['response'];
 		$data['total_antrean'] = $totalAntrean;
 		$data['status'] = 'rekap';
+		$data['databulan'] = $bulan;
+		$data['datatahun'] = $tahun;
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
@@ -113,9 +116,9 @@ class DashboardRekap extends CI_Controller
 	public function rekap_persentase_sep()
 	{
 		$button = $this->input->post('btn_retrieve', true);
+		$bulan = $this->input->post('databulan', true);
+		$tahun = $this->input->post('datatahun', true);
 		if (isset($button)) {
-			$bulan = $this->input->post('databulan', true);
-			$tahun = $this->input->post('datatahun', true);
 			if (!empty($bulan) || !empty($tahun)) {
 
 				$apidata_persrentase_sep = $this->Rekapmodel->getdata_persentasesep($tahun, $bulan);
@@ -134,6 +137,8 @@ class DashboardRekap extends CI_Controller
 		$data['curl'] = $apidata_persrentase_sep['response'];
 		// $data['total_antrean'] = $totalAntrean;
 		$data['status'] = 'rekap';
+		$data['databulan'] = $bulan;
+		$data['datatahun'] = $tahun;
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);

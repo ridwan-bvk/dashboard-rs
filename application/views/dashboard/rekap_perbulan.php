@@ -6,18 +6,19 @@
                     <span class="input-group-text" id="inputGroup-sizing-sm">Bulan</span>
                 </div>
                 <select id="input_bulan" name="databulan" class="form-control">
-                    <option value="01">Januari</option>
-                    <option value="02">Februari</option>
-                    <option value="03">Maret</option>
-                    <option value="04">April</option>
-                    <option value="05">Mei</option>
-                    <option value="06">Juni</option>
-                    <option value="07">Juli</option>
-                    <option value="08">Agustus</option>
-                    <option value="09">September</option>
-                    <option value="10">Oktober</option>
-                    <option value="11">November</option>
-                    <option value="12">Desember</option>
+                  
+                    <option  value = '01' <?php if($databulan=="01"){echo 'Selected'; }?> >Januari</option>
+                    <option  value="02"  <?php if($databulan=="02"){echo 'Selected'; }?> >Februari</option>
+                    <option  value="03"   <?php if($databulan=="03"){echo 'Selected'; }?> >Maret</option>
+                    <option  value="04"  <?php if($databulan=="04"){echo 'Selected'; }?>>April</option>
+                    <option  value="05"  <?php if($databulan=="05"){echo 'Selected'; }?>>Mei</option>
+                    <option  value="06"  <?php if($databulan=="06"){echo 'Selected'; }?>>Juni</option>
+                    <option  value="07"  <?php if($databulan=="07"){echo 'Selected'; }?>>Juli</option>
+                    <option  value="08"  <?php if($databulan=="08"){echo 'Selected'; }?>>Agustus</option>
+                    <option  value="09" <?php if($databulan=="09"){echo 'Selected'; }?> >September</option>
+                    <option  value="10" <?php if($databulan=="10"){echo 'Selected'; }?> >Oktober</option>
+                    <option  value="11" <?php if($databulan=="11"){echo 'Selected'; }?> >November</option>
+                    <option  value="12" <?php if($databulan=="12"){echo 'Selected'; }?> >Desember</option>
 
                 </select>
 
@@ -25,19 +26,19 @@
                     <span class="input-group-text" id="inputGroup-sizing-sm">Tahun</span>
                 </div>
                 <select id="input_tahun" name="datatahun" class="form-control">
-                    <option selected>2023</option>
-                    <option>2019</option>
-                    <option>2020</option>
-                    <option>2021</option>
-                    <option>2022</option>
-                    <option>2023</option>
-                    <option>2024</option>
-                    <option>2025</option>
-                    <option>2026</option>
-                    <option>2027</option>
-                    <option>2028</option>
-                    <option>2029</option>
-                    <option>2030</option>
+                    <option <?php if($datatahun=="2023"){echo 'Selected'; }?> >2023</option>
+                    <option <?php if($datatahun=="2019"){echo 'Selected'; }?> >2019</option>
+                    <option <?php if($datatahun=="2020"){echo 'Selected'; }?> >2020</option>
+                    <option <?php if($datatahun=="2021"){echo 'Selected'; }?> >2021</option>
+                    <option <?php if($datatahun=="2022"){echo 'Selected'; }?> >2022</option>
+                    <option <?php if($datatahun=="2023"){echo 'Selected'; }?> >2023</option>
+                    <option <?php if($datatahun=="2024"){echo 'Selected'; }?> >2024</option>
+                    <option <?php if($datatahun=="2025"){echo 'Selected'; }?> >2025</option>
+                    <option <?php if($datatahun=="2026"){echo 'Selected'; }?> >2026</option>
+                    <option <?php if($datatahun=="2027"){echo 'Selected'; }?> >2027</option>
+                    <option <?php if($datatahun=="2028"){echo 'Selected'; }?> >2028</option>
+                    <option <?php if($datatahun=="2029"){echo 'Selected'; }?> >2029</option>
+                    <option <?php if($datatahun=="2030"){echo 'Selected'; }?> >2030</option>
                     <!-- <?php for ($i = 0; $i <= 9; $i++) { ?> -->
                     <!-- <option>><?= '202' . $i ?></option> -->
                     <!-- <?php } ?> -->
