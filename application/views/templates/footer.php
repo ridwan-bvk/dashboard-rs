@@ -5,9 +5,7 @@
     <!-- /.content-wrapper -->
 
     <footer class="main-footer">
-        <div class="float-right d-none d-sm-block">
-            <b>Version</b> 3.0.5
-        </div>
+
         <strong>Copyright &copy;2023-2024 <a href="">RS KOTA BANJAR</a>.</strong> All rights
         reserved.
     </footer>
@@ -34,8 +32,16 @@
     <!-- AdminLTE for demo purposes -->
     <script src="<?= base_url('assets/templates') ?>/dist/js/demo.js"></script>
     <!-- datepicler] -->
-
     <script src="<?= base_url('assets') ?>/js/datepicker/js/bootstrap-datepicker.min.js"></script>
+    <!--  -->
+    <!-- <script src="<?= base_url('assets') ?>/DataTables/jquery-3.7.0.js"></script> -->
+    <script src="<?= base_url('assets') ?>/DataTables/DataTables-1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="<?= base_url('assets') ?>/DataTables/Buttons-2.4.2/js/dataTables.buttons.min.js"></script>
+    <script src="<?= base_url('assets') ?>/templates/plugins/jszip/jszip.min.js"></script>
+    <script src="<?= base_url('assets') ?>/DataTables/pdfmake-0.2.7/pdfmake.min.js"></script>
+    <script src="<?= base_url('assets') ?>/DataTables/pdfmake-0.2.7/vfs_fonts.js"></script>
+    <script src="<?= base_url('assets') ?>/DataTables/Buttons-2.4.2/js/buttons.html5.min.js"></script>
+    <script src="<?= base_url('assets') ?>/DataTables/Buttons-2.4.2/js/buttons.print.min.js"></script>
     <!-- page script -->
     <script>
         $(function() {
@@ -44,6 +50,14 @@
                 "autoWidth": false,
                 "paging": true,
                 "searching": true,
+                dom: 'Bfrtip',
+                lengthMenu: [
+                    [10, 25, 50, -1],
+                    ['10 rows', '25 rows', '50 rows', 'Show all']
+                ],
+                buttons: [
+                    'pageLength', 'excel', 'pdf', 'print' //'csv','copy',
+                ]
             });
             $('#example2').DataTable({
                 "paging": true,

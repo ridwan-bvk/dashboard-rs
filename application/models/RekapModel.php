@@ -138,6 +138,7 @@ class Rekapmodel extends CI_Model
 
         return $totalAntrean;
     }
+
     function getdata_persentasesep($tahun, $bulan)
     {
 
@@ -162,5 +163,15 @@ class Rekapmodel extends CI_Model
 
         return $api_prsnts_sep;
         // echo $response;
+    }
+
+    function getpoli($kd_poli)
+    {
+        if (!$kd_poli) {
+            return;
+        }
+
+        $query = $this->db->get_where('bpjs_refpoli', ['KDPOLI' => $kd_poli]);
+        return $query->row();
     }
 }

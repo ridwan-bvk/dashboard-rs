@@ -47,7 +47,9 @@
                             <td><?= $item['nik']; ?></td>
                             <td><?= $item['nokapst']; ?></td>
                             <td><?= $item['noantrean']; ?></td>
-                            <td><?= $item['kodepoli']; ?> </td>
+                            <td><?php $namapoli = base_url('DashboardDetail/' . get_poli($item['kodepoli']));
+                                echo $namapoli;
+                                ?> </td>
                             <td><?= $item['sumberdata']; ?> </td>
                             <td><?php
                                 $input = $item['estimasidilayani'];

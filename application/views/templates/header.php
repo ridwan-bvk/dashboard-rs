@@ -21,4 +21,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <!-- datepicker -->
     <link rel="stylesheet" href="<?= base_url('assets') ?>/js/datepicker/css/bootstrap-datepicker.min.css">
+    <!-- button -->
+    <link rel="stylesheet" href="<?= base_url('assets') ?>/DataTables/DataTables-1.13.6/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="<?= base_url('assets') ?>/DataTables/Buttons-2.4.2/css/buttons.dataTables.min.css">
 </head>
