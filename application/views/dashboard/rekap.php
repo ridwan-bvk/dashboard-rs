@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        <form action="<?= base_url('DashboardRekap/index/') ?>" method='POST' onsubmit="return validateForm()" name="myForm">
+        <form action="<?= base_url('DashboardRekap/index/') ?>" method='POST' onsubmit="return validateForm()" name="myForm" id='formparameter'>
             <div class="input-group input-group-sm mb-1 col-sm-4">
                 <div class="input-group-prepend ">
                     <span class="input-group-text" id="inputGroup-sizing-sm">Tanggal</span>
@@ -168,6 +168,11 @@
         </table>
     </div>
     <!-- /.card-body -->
+</div>
+<div idclass="text-center">
+    <div id="loading" class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
 </div>
 <div id="accordion">
 

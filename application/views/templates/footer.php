@@ -78,6 +78,13 @@
                 todayHighlight: true,
                 //  startDate: '-3d',
             });
+            $('#formparameter').on("submit", function(event) {
+
+                // alert("Handler for `submit` called.");
+
+                $('.spinner-border').hide();
+                // event.preventDefault();
+            });
         });
     </script>
     </body>
