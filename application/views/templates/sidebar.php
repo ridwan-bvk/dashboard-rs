@@ -113,13 +113,20 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="<?= base_url('DashboardRekap') ?>" class="nav-link">
-                                        <i class="nav-icon fas fa-user"></i>
+                                        <!-- <i class="nav-icon fas fa-user"></i> -->
+                                        <i class="nav-icon fas fa-clipboard-check"></i>
+                                        <!-- <i class="nav-icon fa-light fa-file"></i> -->
+                                        
                                         <p>Rekap</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="<?= base_url('DashboardDetail') ?>" class="nav-link">
-                                        <i class="nav-icon fas fa-users"></i>
+                                        <!-- <i class="nav-icon fas fa-users"></i> -->
+                                        <i class="nav-icon fas fa-clipboard-list"></i>
+                                        
+                                        
+                                        
                                         <p>Detail</p>
                                     </a>
                                 </li>

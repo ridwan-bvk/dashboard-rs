@@ -44,7 +44,7 @@
             </thead>
             <tbody>
                 <?php
-                if (!empty($curl)) {
+                if (!empty($curl) || (!isset($curl))) {
                     $no = 1;
                     foreach ($curl['response'] as $item) {
                 ?>
