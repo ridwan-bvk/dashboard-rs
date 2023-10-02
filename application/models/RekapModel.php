@@ -153,7 +153,7 @@ class Rekapmodel extends CI_Model
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS => array('tahun' => '2023', 'bulan' => '09', 'waktu' => 'rs'),
+            CURLOPT_POSTFIELDS => array('tahun' => $tahun, 'bulan' => $bulan, 'waktu' => 'rs'),
         ));
 
         $response = curl_exec($curl);
