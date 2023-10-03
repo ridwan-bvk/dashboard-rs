@@ -26,7 +26,7 @@
         <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr class="table-primary">
-                    <th>No</th>
+                    <th id="rowNumber">No</th>
                     <th>No RM</th>
                     <th>Jenis Kunjungan</th>
                     <th>No Referensi</th>

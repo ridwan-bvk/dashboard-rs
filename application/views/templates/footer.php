@@ -57,9 +57,21 @@
                 ],
                 buttons: [
                     'pageLength', 'excel', 'pdf', 'print' //'csv','copy',
-                ]
-                
+                ],
             });
+            $(document).ready(function() {
+                var table = $('#example1').DataTable();
+                table.on('order.dt search.dt', function() {
+                    table.column('#rowNumber', {
+                        search: 'applied',
+                        order: 'applied'
+                    }).nodes().each(function(cell, i) {
+                        cell.innerHTML = i + 1;
+                    });
+                }).draw();
+            });
+
+
             $('#example2').DataTable({
                 "paging": true,
                 "lengthChange": false,
@@ -80,25 +92,47 @@
                 //  startDate: '-3d',
             });
             // $('#formparameter').on("submit", function(event) {
-                // alert("Handler for `submit` called.");
-                // $('#loading').delay('200').fadeOut();
-                // $('.spinner-border').hide();
-                // event.preventDefault();
-                // });
-            });
-            var btnLoading = document.getElementById('loading');
-            btnLoading.style.display= "none";
-            function startProses(){
-                btnLoading.style.display = 'block';
-            }
-            function endProses(){
-                btnLoading.style.display = 'none';
-            }
+            // alert("Handler for `submit` called.");
+            // $('#loading').delay('200').fadeOut();
+            // $('.spinner-border').hide();
+            // event.preventDefault();
+            // });
+        });
+        var btnLoading = document.getElementById('loading');
+        btnLoading.style.display = "none";
 
-            function Loading(){
-                startProses();
-                setTimeout(endProses,3000);
-                // btnLoading.style.display= "none";
-              }
-            </script>
+        function startProses() {
+            btnLoading.style.display = 'block';
+        }
+
+        function endProses() {
+            btnLoading.style.display = 'none';
+        }
+
+        // function Loading() {
+        //     startProses();
+        //     setTimeout(endProses, 3000);
+        //     // btnLoading.style.display= "none";
+        // }
+
+        function Loading() {
+            const loadingElement = document.getElementById('loading');
+            loadingElement.style.display = 'block';
+
+            startProses();
+            loadDataToDataTable(function() {
+                loadingElement.style.display = 'none';
+                endProses();
+            });
+        }
+
+        function loadDataToDataTable(callback) {
+
+            setTimeout(function() {
+                // Data telah dimuat
+
+                callback();
+            }, 5000); // Anggap waktu simulasi 3 detik
+        }
+    </script>
     </body>

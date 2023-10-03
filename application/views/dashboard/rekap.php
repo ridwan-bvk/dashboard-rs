@@ -18,19 +18,18 @@
                 <button type="submit" class="btn btn-primary btn-sm ml-2" id="btn_retrieve" name="btn_retrieve">Retrieve</button>
             </div>
         </form>
-        <!-- <h3 class="card-title">DataTable with default features</h3> -->
         <div class="d-flex justify-content-center">
             <div id="loading" class="spinner-border text-primary" role="status">
-                <!-- <span class="sr-only">Loading...</span> -->
             </div>
         </div>
+        <!-- <h3 class="card-title">DataTable with default features</h3> -->
     </div>
     <!-- /.card-header -->
     <div class="card-body">
         <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr class="table-primary">
-                    <th>No</th>
+                    <th id="rowNumber">No</th>
                     <th>PPK</th>
                     <th>Poli</th>
                     <th>Jumlah Antrian</th>
@@ -59,7 +58,7 @@
                                     foreach ($data2 as $value) :
                 ?>
                                         <tr>
-                                            <td><?= $no++ ?></td>
+                                            <td></td>
                                             <td><?= $value['nmppk'] ?></td>
                                             <td><?= $value['namapoli'] ?></td>
                                             <td><?= $value['jumlah_antrean'] ?></td>
