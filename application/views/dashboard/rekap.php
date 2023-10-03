@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        <form action="<?= base_url('DashboardRekap/index/') ?>" method='POST' onsubmit="return validateForm()" name="myForm" id='formparameter'>
+        <form action="<?= base_url('DashboardRekap/index/') ?>" method='POST' onsubmit="Loading()" name="myForm" id='formparameter'>
             <div class="input-group input-group-sm mb-1 col-sm-4">
                 <div class="input-group-prepend ">
                     <span class="input-group-text" id="inputGroup-sizing-sm">Tanggal</span>
@@ -19,6 +19,11 @@
             </div>
         </form>
         <!-- <h3 class="card-title">DataTable with default features</h3> -->
+        <div class="d-flex justify-content-center">
+            <div id="loading" class="spinner-border text-primary" role="status">
+                <!-- <span class="sr-only">Loading...</span> -->
+            </div>
+        </div>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
@@ -169,11 +174,7 @@
     </div>
     <!-- /.card-body -->
 </div>
-<div idclass="text-center">
-    <div id="loading" class="spinner-border" role="status">
-        <span class="sr-only">Loading...</span>
-    </div>
-</div>
+
 <div id="accordion">
 
     <div class="card">

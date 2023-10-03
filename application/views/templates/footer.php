@@ -58,6 +58,7 @@
                 buttons: [
                     'pageLength', 'excel', 'pdf', 'print' //'csv','copy',
                 ]
+                
             });
             $('#example2').DataTable({
                 "paging": true,
@@ -78,13 +79,26 @@
                 todayHighlight: true,
                 //  startDate: '-3d',
             });
-            $('#formparameter').on("submit", function(event) {
-
+            // $('#formparameter').on("submit", function(event) {
                 // alert("Handler for `submit` called.");
-
-                $('.spinner-border').hide();
+                // $('#loading').delay('200').fadeOut();
+                // $('.spinner-border').hide();
                 // event.preventDefault();
+                // });
             });
-        });
-    </script>
+            var btnLoading = document.getElementById('loading');
+            btnLoading.style.display= "none";
+            function startProses(){
+                btnLoading.style.display = 'block';
+            }
+            function endProses(){
+                btnLoading.style.display = 'none';
+            }
+
+            function Loading(){
+                startProses();
+                setTimeout(endProses,3000);
+                // btnLoading.style.display= "none";
+              }
+            </script>
     </body>

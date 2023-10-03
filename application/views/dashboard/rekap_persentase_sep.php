@@ -127,3 +127,17 @@
     </div>
     <!-- /.card-body -->
 </div>
+<p>
+   <button class="btn btn-primary btn-sm" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Keterangan
+  </button>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+  <p class="font-weight-bold">Jumlah Bridging :</p>
+  <p class="font-italic"> Diambil dari server bpjs terkait antrian online.</p>
+  <p class="font-weight-bold">Jumlah SEP :</p>
+  <p class="font-italic"> Diambil dari server SIMRS yg berhasil buat sep di aplikasi SIMRS.</p>
+    
+  </div>
+</div>
