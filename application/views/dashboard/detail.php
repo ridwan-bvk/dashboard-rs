@@ -19,6 +19,10 @@
                 <button type="submit" class="btn btn-primary btn-sm ml-2" id="btn_retrieve" name="btn_retrieve">Retrieve</button>
             </div>
         </form>
+        <div class="d-flex justify-content-center">
+            <div id="loading" class="spinner-border text-primary" role="status">
+            </div>
+        </div>
         <!-- <h3 class="card-title">DataTable with default features</h3> -->
     </div>
     <!-- /.card-header -->
