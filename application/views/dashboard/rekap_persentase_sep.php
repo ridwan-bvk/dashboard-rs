@@ -48,7 +48,7 @@
                     <?php
                     $currentMonth = date('m'); // Mengambil bulan saat ini dalam format dua digit (misalnya "01" untuk Januari)
                     if (!isset($databulan)) {
-                        $databulan = "01"; // Nilai default saat halaman pertama kali dimuat
+                        $databulan =  $currentMonth; // Nilai default saat halaman pertama kali dimuat
                     }
                     $months = array(
                         '01' => 'Januari',
