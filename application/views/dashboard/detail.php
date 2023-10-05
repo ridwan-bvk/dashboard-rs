@@ -79,8 +79,16 @@
                             <td><?= $item['kodepoli']; ?> </td>
                             <td><?= $item['sumberdata']; ?> </td>
                             <td><?php
-                                $input = $item['estimasidilayani'];
-                                echo  gmdate('H:i:s', $input);
+                                     $timestamp = $item['estimasidilayani'];
+                                     $timezone = 'Asia/Jakarta'; // Zona waktu GMT+07:00
+
+                                    // Mengatur zona waktu default
+                                     date_default_timezone_set($timezone);
+                                     $date_string = date('H:i:s', $timestamp / 1000); // Bagi dengan 1000 untuk mengonversi dari milidetik ke detik
+                                     echo $date_string;
+                            
+                                // $input = $item['estimasidilayani'];
+                                // echo  gmdate('H:i:s', $input);
                                 ?>
                             </td>
 

@@ -28,6 +28,7 @@ class DashboardDetail extends CI_Controller
             $api_data_antrian = '';
         }
 
+        // $kd_poli = $this->Rekapmodel->getpoli($kd_poli);
        
         $data['app_name'] = 'Dashboard App';
         $data['title'] = 'Detail Monitoring Antrian';

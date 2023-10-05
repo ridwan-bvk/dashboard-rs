@@ -70,6 +70,7 @@
                     <th>PPK</th>
                     <th>Poli</th>
                     <th>Jumlah Antrian</th>
+                    <th>Tanggal</th>
                     <th scope="col">Waktu Task 1</th>
                     <th scope="col">Waktu Task 2</th>
                     <th scope="col">Waktu Task 3</th>
@@ -98,6 +99,7 @@
                                 <td><?= $value['nmppk'] ?></td>
                                 <td><?= $value['namapoli'] ?></td>
                                 <td><?= $value['jumlah_antrean'] ?></td>
+                                <td><?= $value['tanggal'] ?></td>
                                 <td><?php
                                     $input = round($value['waktu_task1']);
                                     echo  gmdate('H:i:s', $input);
@@ -175,7 +177,7 @@
             <tr class="table-info">
                 <td colspan="3"> Jumlah Antrian</td>
                 <td><?= $total_antrean ?> </td>
-                <?php for ($i = 1; $i <= 12; $i++) { ?>
+                <?php for ($i = 1; $i <= 13; $i++) { ?>
                     <td></td>
                 <?php };
                 ?>

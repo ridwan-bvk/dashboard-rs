@@ -150,7 +150,7 @@
                 <tr class="table-primary">
                     <th id="rowNumber">No</th>
                     <th>Tanggal</th>
-                    <th>Jumlah Bridging</th>
+                    <th>Jumlah Antrian Online</th>
                     <th>Jumlah SEP</th>
                     <th>Persentase SEP</th>
 
@@ -251,10 +251,10 @@
                             <td>
                                 <dl>
                                     <dt>
-                                        <p class="font-weight-bold">Jumlah Bridging :</p>
+                                        <p class="font-weight-bold">Jumlah Antrian Online :</p>
                                     </dt>
                                     <dd>
-                                        <p class="font-italic"> Diambil dari server bpjs terkait antrian online.</p>
+                                        <p class="font-italic"> Diambil dari server BPJS terkait antrian online.</p>
                                     </dd>
                                 </dl>
                             </td>
@@ -264,7 +264,7 @@
                                         <p class="font-weight-bold">Jumlah SEP :</p>
                                     </dt>
                                     <dd>
-                                        <p class="font-italic"> Diambil dari server SIMRS yang berhasil buat sep di aplikasi SIMRS.</p>
+                                        <p class="font-italic"> Diambil dari server SIMRS yang berhasil buat SEP di aplikasi SIMRS.</p>
                                     </dd>
                                 </dl>
                             </td>

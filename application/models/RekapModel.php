@@ -167,11 +167,15 @@ class Rekapmodel extends CI_Model
 
     function getpoli($kd_poli)
     {
-        if (!$kd_poli) {
-            return;
-        }
+        $file_path = base_url('/assets/dbmaster_refpoli.txt'); // Ganti dengan path ke file teks yang ingin Anda baca
 
-        $query = $this->db->get_where('bpjs_refpoli', ['KDPOLI' => $kd_poli]);
-        return $query->row();
+        if (file_exists($file_path)) {
+            $file_contents = file_get_contents($file_path);
+        } else {
+            $file_contents='';
+        }
+        var_dump($file_contents);
+        return  $file_contents;
     }
 }
+
