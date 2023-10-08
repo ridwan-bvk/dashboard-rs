@@ -18,7 +18,7 @@ class DashboardDetail extends CI_Controller
             $tgl_input = date("Y-m-d", strtotime($tgl_input));
             if (!empty($tgl_input)) {
                 $api_data_antrian = $this->Rekapmodel->getdata_dashboard_antrian_tgl($tgl_input);
-                if (empty ($api_data_antrian['response'] )){
+                if (empty($api_data_antrian['response'])) {
                     $api_data_antrian = '';
                 }
             } else {
@@ -28,14 +28,23 @@ class DashboardDetail extends CI_Controller
             $api_data_antrian = '';
         }
 
-        // $kd_poli = $this->Rekapmodel->getpoli($kd_poli);
-       
+        $data_poli = $this->Rekapmodel->getpoli();
+        if ($data_poli == null) {
+            $data_poli = '';
+        }
+        $dataDPJP = $this->Rekapmodel->getDPJP();
+        if ($dataDPJP == null) {
+            $dataDPJP = '';
+        }
+        // var_dump($kd_poli);
+
         $data['app_name'] = 'Dashboard App';
         $data['title'] = 'Detail Monitoring Antrian';
         $data['status'] = 'detail';
-
         $data['curl'] = $api_data_antrian;
         $data['status'] = 'detail';
+        $data['data_poli'] = $data_poli;
+        $data['data_dpjp'] = $dataDPJP;
         // var_dump($api_data_antrian);
         // exit;
 

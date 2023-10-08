@@ -165,17 +165,35 @@ class Rekapmodel extends CI_Model
         // echo $response;
     }
 
-    function getpoli($kd_poli)
+    function getpoli()
     {
-        $file_path = base_url('/assets/dbmaster_refpoli.txt'); // Ganti dengan path ke file teks yang ingin Anda baca
+        $file_path = FCPATH . 'assets/db/master_refpoli.txt'; //appath
+        // echo $file_path;
+        // base_url('master_refpoli.txt');//tidak bisa karena url
+        // echo getcwd();
 
         if (file_exists($file_path)) {
             $file_contents = file_get_contents($file_path);
+            // $file_contents = file($file_path, FILE_IGNORE_NEW_LINES);
+            $datapoli = $file_contents; //str_replace("'", "\"", $file_contents);
+            $datapoli = json_decode($datapoli, true);
         } else {
-            $file_contents='';
+            $datapoli = '';
         }
-        var_dump($file_contents);
-        return  $file_contents;
+        // print_r($datapoli);
+        return  $datapoli;
+    }
+
+    function getDPJP()
+    {
+        $filepathdpjp = FCPATH . 'assets/db/master_dpjp.txt';
+        if (file_exists($filepathdpjp)) {
+            $file_contents = file_get_contents($filepathdpjp);
+            $dataDPJP = json_decode($file_contents, true);
+        } else {
+            $dataDPJP = '';
+        }
+        // var_dump($dataDPJP);
+        return $dataDPJP;
     }
 }
-

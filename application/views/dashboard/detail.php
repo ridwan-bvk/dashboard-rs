@@ -35,15 +35,15 @@
                     <th>Jenis Kunjungan</th>
                     <th>No Referensi</th>
                     <th>KD Booking(s)</th>
-                    <th>nik</th>
-                    <th>no kapst</th>
-                    <th>noantrean</th>
-                    <th>kodepoli</th>
-                    <th>sumberdata</th>
-                    <th>estimasi dilayani</th>
-                    <th>kode dokter</th>
-                    <th>jam praktek</th>
-                    <th>tanggal</th>
+                    <th>NIK</th>
+                    <th>No kapst</th>
+                    <th>No. antrean</th>
+                    <th>Poli</th>
+                    <th>Sumber Data</th>
+                    <th>Estimasi Dilayani</th>
+                    <th>Dokter</th>
+                    <th>Jam Praktek</th>
+                    <th>Tanggal</th>
                 </tr>
             </thead>
             <tbody>
@@ -68,6 +68,9 @@
                                     case '3':
                                         echo 'Rujukan Antar RS';
                                         break;
+                                    case '4':
+                                        echo 'Rujukan RS';
+                                        break;
                                 }
 
                                 ?></td>
@@ -76,23 +79,59 @@
                             <td><?= $item['nik']; ?></td>
                             <td><?= $item['nokapst']; ?></td>
                             <td><?= $item['noantrean']; ?></td>
-                            <td><?= $item['kodepoli']; ?> </td>
+                            <td>
+                                <?php
+                                if (($data_poli !== null) && (is_array($data_poli) || is_object($data_poli))) {
+                                    $kode_poli = $item['kodepoli'];
+                                    foreach ($data_poli as $data) {
+
+                                        if (isset($data['KDPOLI']) && ($data['KDPOLI'] == $kode_poli)) {
+                                            $nama_poli = $data['NMPOLI'];
+                                            echo "$nama_poli";
+                                            break;
+                                        }
+                                    }
+                                } else {
+                                    $item['kodepoli'];
+                                }
+
+
+                                ?>
+                            </td>
                             <td><?= $item['sumberdata']; ?> </td>
                             <td><?php
-                                     $timestamp = $item['estimasidilayani'];
-                                     $timezone = 'Asia/Jakarta'; // Zona waktu GMT+07:00
+                                $timestamp = $item['estimasidilayani'];
+                                $timezone = 'Asia/Jakarta'; // Zona waktu GMT+07:00
 
-                                    // Mengatur zona waktu default
-                                     date_default_timezone_set($timezone);
-                                     $date_string = date('H:i:s', $timestamp / 1000); // Bagi dengan 1000 untuk mengonversi dari milidetik ke detik
-                                     echo $date_string;
-                            
+                                // Mengatur zona waktu default
+                                date_default_timezone_set($timezone);
+
+                                $date_string = date('H:i:s', round($timestamp / 1000)); // Bagi dengan 1000 untuk mengonversi dari milidetik ke detik
+                                echo $date_string;
+
                                 // $input = $item['estimasidilayani'];
                                 // echo  gmdate('H:i:s', $input);
                                 ?>
                             </td>
 
-                            <td><?= $item['kodedokter']; ?> </td>
+                            <td>
+                                <?php
+
+                                $kdDppj = $item['kodedokter'];
+                                if (($data_dpjp !== null) && (is_array($data_dpjp) || is_object($data_dpjp))) {
+
+
+                                    foreach ($data_dpjp as $dpjpitem) {
+                                        if ($dpjpitem['KDDPJP'] == $kdDppj) {
+                                            echo $dpjpitem['NMDPJP'];
+                                            break;
+                                        }
+                                    }
+                                } else {
+                                    echo $kdDppj;
+                                }
+                                ?>
+                            </td>
                             <td><?= $item['jampraktek']; ?> </td>
                             <td><?= $item['tanggal']; ?> </td>
 
