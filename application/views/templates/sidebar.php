@@ -9,9 +9,9 @@
             ?>
                 <ul class="navbar-nav">
                     <!-- button push menu -->
-                    <!-- <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-                    </li> -->
+                    </li>
                     <!--  -->
                     <!-- <ul class="nav nav-pills h5" id="pills-tab" role="tablist" style="fon">
                         <li class="nav-item ">
@@ -44,7 +44,12 @@
                     </li>
                 </ul>
             <?php } elseif ($status == 'detail') { ?>
-                <!-- <h5><?= $title ?></h5> -->
+
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    </li>
+                </ul>
             <?php
             };
             ?>
@@ -102,6 +107,7 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+
                         <li class="nav-item has-treeview menu-open">
                             <a href="#" class="nav-link active">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -111,29 +117,59 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="<?= base_url('DashboardRekap') ?>" class="nav-link">
-                                        <!-- <i class="nav-icon fas fa-user"></i> -->
+                                <li class="nav-item has-treeview">
+                                    <a href="#" class="nav-link">
                                         <i class="nav-icon fas fa-clipboard-check"></i>
-                                        <!-- <i class="nav-icon fa-light fa-file"></i> -->
-                                        
+                                        <p>
+                                            Rekap
+                                            <i class="right fas fa-angle-left"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="<?= base_url('DashboardRekap') ?>" class="nav-link">
+                                                <i class="far fa-dot-circle nav-icon"></i>
+                                                <p>Pertanggal</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="<?= base_url('DashboardRekap/rekap_perbulan') ?>" class="nav-link ">
+                                                <i class="far fa-dot-circle nav-icon"></i>
+                                                <p>Perbulan</p>
+                                                <!-- <button class="btn btn-sm btn-success" type="button" aria-disabled="<?= ($status == 'rekap') ? false : true ?>">Perbulan</button> -->
+
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="<?= base_url('DashboardRekap/rekap_persentase_sep') ?>" class="nav-link ">
+                                                <i class="far fa-dot-circle nav-icon"></i>
+                                                <p>Persentase SEP</p>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <!-- <li class="nav-item">
+                                    <a href="<?= base_url('DashboardRekap') ?>" class="nav-link">
+                                        <i class="nav-icon fas fa-clipboard-check"></i>
                                         <p>Rekap</p>
                                     </a>
-                                </li>
+                                </li> -->
                                 <li class="nav-item">
                                     <a href="<?= base_url('DashboardDetail') ?>" class="nav-link">
                                         <!-- <i class="nav-icon fas fa-users"></i> -->
                                         <i class="nav-icon fas fa-clipboard-list"></i>
-                                        
-                                        
-                                        
+
+
+
                                         <p>Detail</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-
-                    </ul>
 
                 </nav>
                 <!-- /.sidebar-menu -->

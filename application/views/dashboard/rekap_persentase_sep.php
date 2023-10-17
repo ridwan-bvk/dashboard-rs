@@ -72,7 +72,7 @@
                     ?>
                 </select>
 
-                <div class="input-group-prepend ml-5">
+                <div class="input-group-prepend ml-1">
                     <span class="input-group-text" id="inputGroup-sizing-sm">Tahun</span>
                 </div>
                 <!-- <select id="input_tahun" name="datatahun" class="form-control">
@@ -134,7 +134,7 @@
 
                 </select>
 
-                <button type="submit" class="btn btn-primary btn-sm ml-2" id="btn_retrieve" name="btn_retrieve">Retrieve</button>
+                <button type="submit" class="btn btn-primary btn-sm ml-1" id="btn_retrieve" name="btn_retrieve">Retrieve</button>
             </div>
         </form>
         <div class="d-flex justify-content-center">

@@ -1,5 +1,6 @@
 <div class="card">
     <div class="card-header">
+
         <form action="<?= base_url('DashboardRekap/rekap_perbulan') ?>" method='POST' onsubmit="return validateForm()" name="myForm" class="form-inline">
             <div class="input-group input-group-sm mb-1 col-sm-4">
                 <div class="input-group-prepend ">
@@ -9,7 +10,7 @@
                     <?php
                     $currentMonth = date('m'); // Mengambil bulan saat ini dalam format dua digit (misalnya "01" untuk Januari)
                     if (!isset($databulan)) {
-                        $databulan = $currentMonth ; // Nilai default saat halaman pertama kali dimuat
+                        $databulan = $currentMonth; // Nilai default saat halaman pertama kali dimuat
                     }
                     $months = array(
                         '01' => 'Januari',
@@ -34,7 +35,7 @@
 
                 </select>
 
-                <div class="input-group-prepend ml-5">
+                <div class="input-group-prepend ml-1">
                     <span class="input-group-text" id="inputGroup-sizing-sm">Tahun</span>
                 </div>
                 <select id="input_tahun" name="datatahun" class="form-control">
@@ -52,7 +53,7 @@
                     }
                     ?>
                 </select>
-                <button type="submit" class="btn btn-primary btn-sm ml-2" id="btn_retrieve" name="btn_retrieve">Retrieve</button>
+                <button type="submit" class="btn btn-primary btn-sm ml-1" id="btn_retrieve" name="btn_retrieve">Retrieve</button>
             </div>
         </form>
         <div class="d-flex justify-content-center">
@@ -60,6 +61,7 @@
             </div>
         </div>
         <!-- <h3 class="card-title">DataTable with default features</h3> -->
+
     </div>
     <!-- /.card-header -->
     <div class="card-body">
