@@ -78,7 +78,7 @@ class DashboardRekap extends CI_Controller
 				// 	return array([$carry + $item['jumlah_antrean']]);
 				// }, 0);
 				// echo ($totalAntrean);
-				if (!empty($apidata_prbln)) {
+				if (!empty($apidata_prbln)&& isset($apidata_prbln['response']) ) {
 					if (is_array($apidata_prbln) || is_object($apidata_prbln)) {
 						$totalAntrean =  $this->Rekapmodel->jml_antrean_bln($apidata_prbln);
 					}
