@@ -151,19 +151,22 @@
                     <th id="rowNumber">No</th>
                     <th>Tanggal</th>
                     <th>Jumlah Antrian Online</th>
-                    <th>Jumlah SEP</th>
-                    <th>Persentase SEP</th>
+                    <th>Jumlah SEP BPJS</th>
+					<th>Jumlah SEP SIMRS</th>
+                    <th>Persentase SEP BPJS</th>
+					<th>Persentase SEP SIMRS</th>
 
 
                 </tr>
             </thead>
             <tbody>
                 <?php
-                global $total_antrol, $total_sep, $persentase;
+                global $total_antrol, $total_sep,$total_sep_simrs, $persentase,$persentase_simrs;
                 if (!empty($curl)) {
                     $no = 1;
                     $total_antrol = 0;
                     $total_sep = 0;
+					$total_sep_simrs = 0;
                     if (is_array($curl) || is_object($curl)) {
                         foreach ($curl as $value) :
 
@@ -173,6 +176,7 @@
                                 <td><?= $value['Tanggal'] ?></td>
                                 <td><?= $value['JumlahAntrol'] ?></td>
                                 <td><?= $value['JumlahSEP'] ?></td>
+								<td><?= $value['JumlahSEPSimrs'] ?></td>
                                 <td><?php
                                     if (($value['JumlahSEP'] > 0) && ($value['JumlahAntrol'] > 0)) {
                                         $persentase = round($value['JumlahAntrol'] / $value['JumlahSEP']  * 100, 1) . ' %';
@@ -182,12 +186,22 @@
                                     echo $persentase;
                                     ?>
                                 </td>
+								<td><?php
+                                    if (($value['JumlahSEPSimrs'] > 0) && ($value['JumlahAntrol'] > 0)) {
+                                        $persentase_simrs = round($value['JumlahAntrol'] / $value['JumlahSEPSimrs']  * 100, 1) . ' %';
+                                    } else {
+                                        $persentase_simrs = 0;
+                                    }
+                                    echo $persentase_simrs;
+                                    ?>
+                                </td>
 
                             </tr>
                 <?php
 
                             $total_antrol = $total_antrol + $value['JumlahAntrol'];
                             $total_sep = $total_sep +  $value['JumlahSEP'];
+							$total_sep_simrs = $total_sep_simrs +  $value['JumlahSEPSimrs'];
 
 
                         endforeach;
@@ -200,6 +214,7 @@
                 <td></td>
                 <td><?= empty($total_antrol) ? 0 : $total_antrol ?></td>
                 <td><?= empty($total_sep) ? 0 : $total_sep  ?></td>
+				<td><?= empty($total_sep_simrs) ? 0 : $total_sep_simrs  ?></td>
                 <td><?php
                     $persentase = 0;
                     if (($total_antrol > 0) && ($total_sep > 0)) {
@@ -208,6 +223,16 @@
                         $persentase = 0;
                     }
                     echo $persentase;
+                    ?>
+                </td>
+				<td><?php
+                    $persentase_simrs = 0;
+                    if (($total_antrol > 0) && ($total_sep_simrs > 0)) {
+                        $persentase_simrs = round($total_antrol / $total_sep_simrs  * 100, 1) . ' %';
+                    } else {
+                        $persentase_simrs = 0;
+                    }
+                    echo $persentase_simrs;
                     ?>
                 </td>
 
@@ -258,10 +283,20 @@
                                     </dd>
                                 </dl>
                             </td>
+							<td>
+                                <dl>
+                                    <dt>
+                                        <p class="font-weight-bold">Jumlah SEP BPJS:</p>
+                                    </dt>
+                                    <dd>
+                                        <p class="font-italic"> Diambil dari server BPJS.</p>
+                                    </dd>
+                                </dl>
+                            </td>
                             <td>
                                 <dl>
                                     <dt>
-                                        <p class="font-weight-bold">Jumlah SEP :</p>
+                                        <p class="font-weight-bold">Jumlah SEP SIMRS:</p>
                                     </dt>
                                     <dd>
                                         <p class="font-italic"> Diambil dari server SIMRS yang berhasil buat SEP di aplikasi SIMRS.</p>
