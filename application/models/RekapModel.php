@@ -89,7 +89,7 @@ class Rekapmodel extends CI_Model
         //     $totalAntrean = array_reduce($list, function ($carry, $item) {
         //     return $carry + $item['jumlah_antrean'];
         // }, 0);
-
+                //   
 
         if (count($data) > 0) {
             $totalAntrean = 0;
